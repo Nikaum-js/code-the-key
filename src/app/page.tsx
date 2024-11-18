@@ -15,10 +15,16 @@ import { LucideSettings } from 'lucide-react';
 import { Progress } from "@/components/ui/progress"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Separator } from "@/components/ui/separator"
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
   const [progress, setProgress] = useState(13)
+
+  useEffect(() => {
+    const timer = setTimeout(() => setProgress(66), 500)
+    
+    return () => clearTimeout(timer)
+  }, [])
 
   return (
     <main className="bg-zinc-900 h-screen flex flex-col items-center">
